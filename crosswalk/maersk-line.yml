@@ -1,0 +1,56 @@
+provider: maersk-line
+standard: dcsa-2025
+operations:
+- api: booking
+  operation: GET /bookings/{bookingReference}
+  evidence: openapi/_original/maersk-ocean-booking-api-openapi.yml#GET /dcsa/bkg/v2/bookings/{carrierBookingReference}
+  fields: 57
+  crosswalk:
+    carrierBookingReference: carrierBookingReference
+    bookingStatus: bookingStatus
+    receiptTypeAtOrigin: receiptTypeAtOrigin
+    deliveryTypeAtDestination: deliveryTypeAtDestination
+    cargoMovementTypeAtOrigin: cargoMovementTypeAtOrigin
+    cargoMovementTypeAtDestination: cargoMovementTypeAtDestination
+    serviceContractReference: serviceContractReference
+    carrierServiceCode: carrierServiceCode
+    partyContactDetails: partyContactDetails
+    requestedEquipments: requestedEquipments
+  coverage: 0.18
+- api: booking
+  operation: POST /bookings
+  evidence: openapi/_original/maersk-ocean-booking-api-openapi.yml#POST /dcsa/bkg/v2/bookings
+  fields: 44
+  crosswalk:
+    receiptTypeAtOrigin: receiptTypeAtOrigin
+    deliveryTypeAtDestination: deliveryTypeAtDestination
+    cargoMovementTypeAtOrigin: cargoMovementTypeAtOrigin
+    cargoMovementTypeAtDestination: cargoMovementTypeAtDestination
+    serviceContractReference: serviceContractReference
+    carrierServiceCode: carrierServiceCode
+    partyContactDetails: partyContactDetails
+    requestedEquipments: requestedEquipments
+  coverage: 0.18
+- api: ebl
+  operation: GET /transport-documents/{transportDocumentReference}
+  evidence: openapi/_original/maersk-bill-of-lading-api-openapi.yml#GET /dcsa/ebl/v3/transport-documents/{transportDocumentReference}
+  fields: 47
+  crosswalk:
+    transportDocumentReference: transportDocumentReference
+    transportDocumentStatus: transportDocumentStatus
+    transportDocumentTypeCode: transportDocumentTypeCode
+    cargoMovementTypeAtOrigin: cargoMovementTypeAtOrigin
+    cargoMovementTypeAtDestination: cargoMovementTypeAtDestination
+    issueDate: issueDate
+    carrierCode: carrierCode
+    placeOfIssue: placeOfIssue
+  coverage: 0.17
+- api: operational-vessel-schedules
+  operation: GET /service-schedules
+  evidence: openapi/_original/maersk-schedules-api-openapi.yml#GET /dcsa/cs/v1/service-schedules
+  fields: 4
+  crosswalk:
+    carrierServiceName: carrierServiceName
+    carrierServiceCode: carrierServiceCode
+    vesselSchedules: vesselSchedules
+  coverage: 0.75

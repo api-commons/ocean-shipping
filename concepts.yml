@@ -1,0 +1,68 @@
+context: ocean-shipping
+name: Container Shipping (DCSA)
+kind: reference
+intro: >-
+  How container shipping is booked, documented and tracked between shippers and ocean carriers --
+  bookings, shipping instructions and transport documents (the electronic bill of lading), vessel and
+  port schedules, and track-and-trace events. The shape is owned by the Digital Container Shipping
+  Association (DCSA) standards, so this context publishes DCSA's own objects and measures who implements them.
+tags: [Maritime, Shipping, Ocean Freight, Ports, Vessel Tracking, Logistics, Freight, Supply Chain, Supply Chain Visibility, Freight Forwarding, Container Shipping]
+reference:
+  standard: dcsa-2025
+  home: https://dcsa.org/standards
+  license: Apache-2.0
+  mentions: '\bdcsa\b'
+  publishers: []
+  object_threshold: 0.6
+  min_coverage: 0.3
+  match_objects: [transportEvent, equipmentEvent, shipmentEvent, Booking, TransportDocument, ShippingInstructions]
+  objects: [transportEvent, equipmentEvent, shipmentEvent, Booking, ShippingInstructions, TransportDocument, ServiceSchedule, PortSchedule, PointToPoint]
+  apis:
+    - api: track-and-trace
+      release: https://app.swaggerhub.com/apis/dcsaorg/DCSA_TNT/2.2.0
+      name: dcsa
+      signature: [GET /events]
+      operations:
+        - {op: GET /events}
+        - {op: "GET /events/{eventID}"}
+    - api: booking
+      release: https://app.swaggerhub.com/apis/dcsaorg/DCSA_BKG/2.0.4
+      name: dcsa
+      operations:
+        - {op: POST /bookings, request: CreateBooking}
+        - {op: "GET /bookings/{bookingReference}", response: Booking}
+    - api: ebl
+      release: https://app.swaggerhub.com/apis/dcsaorg/DCSA_EBL/3.0.3
+      name: dcsa
+      operations:
+        - {op: POST /shipping-instructions, request: CreateShippingInstructions}
+        - {op: "GET /shipping-instructions/{documentReference}", response: ShippingInstructions}
+        - {op: "GET /transport-documents/{transportDocumentReference}", response: TransportDocument}
+    - api: commercial-schedules
+      release: https://app.swaggerhub.com/apis/dcsaorg/DCSA_CS/1.0.3
+      name: dcsa
+      operations:
+        - {op: GET /point-to-point-routes, response: PointToPoint}
+        - {op: GET /port-schedules, response: PortSchedule}
+        - {op: GET /vessel-schedules, response: ServiceSchedule}
+    - api: operational-vessel-schedules
+      release: https://app.swaggerhub.com/apis/dcsaorg/DCSA_OVS/3.0.2
+      name: dcsa
+      operations:
+        - {op: GET /service-schedules, response: ServiceSchedule}
+findings:
+  - >-
+    Three carriers and forwarders implement DCSA in their own published OpenAPI, out of 300 maritime,
+    freight and supply-chain providers measured. evergreen-marine implements booking, eBL, commercial
+    schedules and track-and-trace, carrying 71-98% of each object's fields; maersk-line publishes DCSA
+    booking, eBL and schedules under /dcsa/ paths; kuehne-nagel publishes a DCSA equipment event.
+  - >-
+    The maritime and supply-chain census contexts found vessels, positions and tracked shipments agreeing
+    on almost nothing. The carriers that agree do so by implementing DCSA, not by converging on their own.
+decisions:
+  - >-
+    An operation is matched when its path or server names DCSA, or, matched on path alone, when it carries
+    at least 30% of the standard object's fields: /bookings and /events are too common to count by path.
+  - >-
+    Pinned to the latest final (non-beta) version of each DCSA API on SwaggerHub at measurement time,
+    fetched resolved so the shared domain components are inlined.

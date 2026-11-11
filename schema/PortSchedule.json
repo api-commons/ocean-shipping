@@ -1,0 +1,12 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "PortSchedule",
+  "type": "object",
+  "x-commons-source": "standard",
+  "x-commons-standard": "dcsa-2025",
+  "x-commons-release": "https://app.swaggerhub.com/apis/dcsaorg/DCSA_CS/1.0.3",
+  "properties": {
+    "location": {},
+    "vesselSchedules": {}
+  }
+}

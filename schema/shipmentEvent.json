@@ -1,0 +1,23 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "shipmentEvent",
+  "type": "object",
+  "x-commons-source": "standard",
+  "x-commons-standard": "dcsa-2025",
+  "x-commons-release": "https://dcsa.org/standards",
+  "properties": {
+    "eventID": {},
+    "eventCreatedDateTime": {},
+    "eventType": {},
+    "eventClassifierCode": {},
+    "eventDateTime": {},
+    "shipmentEventTypeCode": {},
+    "documentID": {},
+    "documentTypeCode": {},
+    "shipmentInformationTypeCode": {},
+    "reason": {},
+    "eventTypeCode": {},
+    "shipmentID": {},
+    "references": {}
+  }
+}

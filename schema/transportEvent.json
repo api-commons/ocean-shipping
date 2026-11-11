@@ -1,0 +1,24 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "transportEvent",
+  "type": "object",
+  "x-commons-source": "standard",
+  "x-commons-standard": "dcsa-2025",
+  "x-commons-release": "https://dcsa.org/standards",
+  "properties": {
+    "eventID": {},
+    "eventCreatedDateTime": {},
+    "eventType": {},
+    "eventClassifierCode": {},
+    "eventDateTime": {},
+    "transportEventTypeCode": {},
+    "delayReasonCode": {},
+    "vesselScheduleChangeRemark": {},
+    "changeRemark": {},
+    "transportCallID": {},
+    "transportCall": {},
+    "eventTypeCode": {},
+    "documentReferences": {},
+    "references": {}
+  }
+}

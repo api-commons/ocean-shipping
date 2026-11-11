@@ -1,0 +1,19 @@
+provider: kuehne-nagel
+standard: dcsa-2025
+operations:
+- api: objects
+  operation: equipmentEvent
+  evidence: openapi/_original/kuehne-nagel-ocean-event-inbox-v1-openapi.json#/components/schemas/equipmentEventPayload
+  fields: 16
+  crosswalk:
+    eventClassifierCode: eventClassifierCode
+    eventDateTime: eventDateTime
+    equipmentEventTypeCode: equipmentEventTypeCode
+    equipmentReference: equipmentReference
+    ISOEquipmentCode: isoEquipmentCode
+    emptyIndicatorCode: emptyIndicatorCode
+    eventLocation: eventLocation
+    transportCall: transportCall
+    references: references
+    seals: seals
+  coverage: 0.62

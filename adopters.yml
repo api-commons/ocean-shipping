@@ -1,0 +1,22 @@
+adopters:
+- provider: evergreen-marine
+  role: implementer
+  apis:
+  - booking
+  - commercial-schedules
+  - ebl
+  - objects
+  - track-and-trace
+  url: https://apis.io/providers/evergreen-marine/
+- provider: kuehne-nagel
+  role: implementer
+  apis:
+  - objects
+  url: https://apis.io/providers/kuehne-nagel/
+- provider: maersk-line
+  role: implementer
+  apis:
+  - booking
+  - ebl
+  - operational-vessel-schedules
+  url: https://apis.io/providers/maersk-line/

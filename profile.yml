@@ -1,0 +1,57 @@
+context: ocean-shipping
+kind: reference
+standard: dcsa-2025
+cohort:
+  tags:
+  - Maritime
+  - Shipping
+  - Ocean Freight
+  - Ports
+  - Vessel Tracking
+  - Logistics
+  - Freight
+  - Supply Chain
+  - Supply Chain Visibility
+  - Freight Forwarding
+  - Container Shipping
+  providers_with_harvested_openapi: 300
+implementers: 3
+publishers: []
+mentioned_by: 4
+mentioned_by_providers:
+- evergreen-marine
+- hmm21
+- kuehne-nagel
+- maersk-line
+apis:
+  track-and-trace:
+    release: https://app.swaggerhub.com/apis/dcsaorg/DCSA_TNT/2.2.0
+    providers: 1
+    operations:
+    - GET /events
+    - GET /events/{eventID}
+  booking:
+    release: https://app.swaggerhub.com/apis/dcsaorg/DCSA_BKG/2.0.4
+    providers: 2
+    operations:
+    - POST /bookings
+    - GET /bookings/{bookingReference}
+  ebl:
+    release: https://app.swaggerhub.com/apis/dcsaorg/DCSA_EBL/3.0.3
+    providers: 2
+    operations:
+    - POST /shipping-instructions
+    - GET /shipping-instructions/{documentReference}
+    - GET /transport-documents/{transportDocumentReference}
+  commercial-schedules:
+    release: https://app.swaggerhub.com/apis/dcsaorg/DCSA_CS/1.0.3
+    providers: 1
+    operations:
+    - GET /point-to-point-routes
+    - GET /port-schedules
+    - GET /vessel-schedules
+  operational-vessel-schedules:
+    release: https://app.swaggerhub.com/apis/dcsaorg/DCSA_OVS/3.0.2
+    providers: 1
+    operations:
+    - GET /service-schedules

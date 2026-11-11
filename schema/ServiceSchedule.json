@@ -1,0 +1,14 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "ServiceSchedule",
+  "type": "object",
+  "x-commons-source": "standard",
+  "x-commons-standard": "dcsa-2025",
+  "x-commons-release": "https://app.swaggerhub.com/apis/dcsaorg/DCSA_OVS/3.0.2",
+  "properties": {
+    "carrierServiceName": {},
+    "carrierServiceCode": {},
+    "universalServiceReference": {},
+    "vesselSchedules": {}
+  }
+}
